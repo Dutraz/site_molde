@@ -12,11 +12,17 @@ window.addEventListener('DOMContentLoaded', event => {
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
+        const navbarLogo = document.body.querySelector('#navbarLogo');
+        navbarLogo.src = 'assets/logo_black_nobg.png'
+
         if (!navbarCollapsible) {
             return;
         }
         if (window.scrollY === 0) {
             navbarCollapsible.classList.remove('navbar-shrink')
+            if (window.matchMedia("(min-width: 991.98px)").matches) {
+                navbarLogo.src = 'assets/logo_white_nobg.png'
+            }
         } else {
             navbarCollapsible.classList.add('navbar-shrink')
         }
